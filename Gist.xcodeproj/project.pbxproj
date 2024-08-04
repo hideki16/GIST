@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		726798F52C5EBD5D003EAC39 /* GistListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726798F42C5EBD5D003EAC39 /* GistListWorker.swift */; };
+		726798F72C5EBD6E003EAC39 /* GistListNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726798F62C5EBD6E003EAC39 /* GistListNetworkManager.swift */; };
 		72A8247A29018A4100A2619D /* GistListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8247929018A4100A2619D /* GistListInteractor.swift */; };
 		72A8247C29018AA300A2619D /* GistListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8247B29018AA300A2619D /* GistListPresenter.swift */; };
 		72A8247E29018B2300A2619D /* Gist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8247D29018B2300A2619D /* Gist.swift */; };
@@ -45,6 +47,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		726798F42C5EBD5D003EAC39 /* GistListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListWorker.swift; sourceTree = "<group>"; };
+		726798F62C5EBD6E003EAC39 /* GistListNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListNetworkManager.swift; sourceTree = "<group>"; };
 		72A8247929018A4100A2619D /* GistListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListInteractor.swift; sourceTree = "<group>"; };
 		72A8247B29018AA300A2619D /* GistListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListPresenter.swift; sourceTree = "<group>"; };
 		72A8247D29018B2300A2619D /* Gist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gist.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 		7230F48F2900780700DC7CE4 /* GistListModule */ = {
 			isa = PBXGroup;
 			children = (
+				726798F32C5EBB78003EAC39 /* Network */,
 				72A82483290198FF00A2619D /* Entities */,
 				72A8248429019D5800A2619D /* GistListView.swift */,
 				72A8248A2901D42D00A2619D /* GistTableViewCell.swift */,
@@ -114,6 +119,22 @@
 				72AFB56329052E4700FAE603 /* GistDetail */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		726798F32C5EBB78003EAC39 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				726798F42C5EBD5D003EAC39 /* GistListWorker.swift */,
+				726798F62C5EBD6E003EAC39 /* GistListNetworkManager.swift */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		726798F92C5EC097003EAC39 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Network;
 			sourceTree = "<group>";
 		};
 		72A82483290198FF00A2619D /* Entities */ = {
@@ -146,6 +167,7 @@
 		72AFB56329052E4700FAE603 /* GistDetail */ = {
 			isa = PBXGroup;
 			children = (
+				726798F92C5EC097003EAC39 /* Network */,
 				72AFB56A2905D18800FAE603 /* GistDetailView.swift */,
 				72AFB5682905D17B00FAE603 /* GistDetailPresenter.swift */,
 				72AFB5662905D16700FAE603 /* GistDetailInteractor.swift */,
@@ -332,10 +354,12 @@
 				72A82482290198E800A2619D /* GistFile.swift in Sources */,
 				72EFF041290076740014DF5D /* AppDelegate.swift in Sources */,
 				72A824892901AD7400A2619D /* GistListRouter.swift in Sources */,
+				726798F52C5EBD5D003EAC39 /* GistListWorker.swift in Sources */,
 				72AFB56B2905D18800FAE603 /* GistDetailView.swift in Sources */,
 				72AFB56D2905DD9100FAE603 /* ViewCodeProtocol.swift in Sources */,
 				72A8248B2901D42D00A2619D /* GistTableViewCell.swift in Sources */,
 				72A8248529019D5800A2619D /* GistListView.swift in Sources */,
+				726798F72C5EBD6E003EAC39 /* GistListNetworkManager.swift in Sources */,
 				72EFF043290076740014DF5D /* SceneDelegate.swift in Sources */,
 				72AFB5532903B03B00FAE603 /* UIImage+Extension.swift in Sources */,
 				72A8247A29018A4100A2619D /* GistListInteractor.swift in Sources */,
