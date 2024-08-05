@@ -21,6 +21,6 @@ class GistListInteractor: GistListInteractorProtocol {
     
     
     func loadGists(completionHandler: @escaping ([Gist]) -> Void) {
-        return worker?.loadGists()
+//        return worker?.loadGists()
     }
 }
