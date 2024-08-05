@@ -10,11 +10,13 @@ import Foundation
 import UIKit
 
 protocol GistDetailViewProtocol {
-    var gist: Gist? {get set}
-    func updateGist(gist: Gist?)
+    var viewModel: GistDetailViewModelProtocol { get set }
+    func updateGist()
 }
 
 class GistDetailView: UIViewController, GistDetailViewProtocol {
+    
+    var viewModel: GistDetailViewModelProtocol
     
     var contentStack: UIStackView = {
         var stack = UIStackView()
@@ -56,23 +58,36 @@ class GistDetailView: UIViewController, GistDetailViewProtocol {
         return label
     }()
     
+    init(viewModel: GistDetailViewModelProtocol) {
+        self.viewModel = viewModel
+        
+        super.init(nibName: nil, bundle: nil)
+    }
     
-    var presenter: GistDetailPresenterProtocol?
-    var gist: Gist?
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter?.viewDidLoad()
         setupView()
+        
+        viewModel.fetchGistDetail(completion: {
+            result in
+            if result {
+                self.updateGist()
+            } else {
+                print("houve um problema")
+            }
+        })
     }
     
-    func updateGist(gist: Gist?) {
-        self.gist = gist
+    func updateGist() {
         DispatchQueue.main.async {
-            self.avatarImage.downloaded(from: gist?.owner?.avatarImage ?? "")
-            self.name.text = gist?.owner?.name ?? "-"
-            self.descriptionLabel.text = gist?.description ?? ""
+            self.avatarImage.downloaded(from: self.viewModel.gist?.owner?.avatarImage ?? "")
+            self.name.text = self.viewModel.gist?.owner?.name ?? "-"
+            self.descriptionLabel.text = self.viewModel.gist?.description ?? ""
         }
     }
 }

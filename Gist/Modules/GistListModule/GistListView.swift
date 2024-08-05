@@ -87,6 +87,7 @@ class GistListView: UIViewController, GistListViewProtocol {
 extension GistListView: ViewCodeProtocol {
     func setupView() {
         self.view.backgroundColor = UIColor(red: 18/255, green: 16/255, blue: 24/255, alpha: 1)
+        
         setupSubviews()
         setupConstraints()
     }
@@ -141,9 +142,8 @@ extension GistListView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = GistDetailView()
+        let viewController = GistDetailView(viewModel: GistDetailViewModel(worker: GistDetailWorker(), gist: viewModel.gists[indexPath.row]))
         
-        GistDetailRouter.createGistDetailModule(GistDetailRef: viewController, gist: self.viewModel.gists[indexPath.row])
         self.navigationController?.pushViewController(viewController , animated: true)
         return
     }

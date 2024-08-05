@@ -155,6 +155,7 @@ class GistTableViewCell: UITableViewCell, GistTableViewCellProtocol {
 
 extension GistTableViewCell {
     func setupView() {
+        self.selectionStyle = .none
         self.backgroundColor = .clear
         self.setupSubviews()
         self.setupConstraints()
