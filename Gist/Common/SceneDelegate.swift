@@ -21,9 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
         let window = UIWindow(windowScene: windowScene)
 
-        let viewController = GistListView()
+        let viewController = GistListView(viewModel: GistListViewModel(worker: GistListWorker()))
         
-        GistListRouter.createGistListModule(GistListRef: viewController)
         let navigation = UINavigationController(rootViewController: viewController)
         navigation.navigationBar.barTintColor = .clear
         

@@ -11,7 +11,7 @@ protocol GistListNetworkProtocol {
     func fetchGists(completionHandler: @escaping ([Gist]) -> Void)
 }
 
-class GistListNetworkManager: GistListNetworkProtocol {
+class GistListNetwork: GistListNetworkProtocol {
     
     
     func fetchGists(completionHandler: @escaping ([Gist]) -> Void) {

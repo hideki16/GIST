@@ -9,13 +9,23 @@ import Foundation
 import UIKit
 
 protocol GistListViewProtocol {
-    func updateGists(gists: [Gist]?)
+    var viewModel: GistListViewModelProtocol { get set }
+    func updateGists()
 }
 
 class GistListView: UIViewController, GistListViewProtocol {
     
-    var presenter: GistListPresenterProtocol?
-    var gists: [Gist] = []
+    var viewModel: GistListViewModelProtocol
+    
+    init(viewModel: GistListViewModelProtocol) {
+        self.viewModel = viewModel
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     var headerStack: UIStackView = {
         var stack = UIStackView()
@@ -63,7 +73,14 @@ class GistListView: UIViewController, GistListViewProtocol {
         super.viewDidLoad()
         setupView()
         
-        presenter?.viewDidLoad()
+        viewModel.fetchGists(completion: {
+            result in
+            if result {
+                self.updateGists()
+            } else {
+                print("problema")
+            }
+        })
     }
 }
 
@@ -106,13 +123,13 @@ extension GistListView: ViewCodeProtocol {
 
 extension GistListView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return gists.count
+        return viewModel.gists.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: GistTableViewCell.identifier, for: indexPath) as! GistTableViewCell
-        cell.gist = gists[indexPath.row]
+        cell.gist = self.viewModel.gists[indexPath.row]
         
         return cell
     }
@@ -123,16 +140,14 @@ extension GistListView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = GistDetailView()
-        GistDetailRouter.createGistDetailModule(GistDetailRef: viewController, gist: gists[indexPath.row])
+        
+        GistDetailRouter.createGistDetailModule(GistDetailRef: viewController, gist: self.viewModel.gists[indexPath.row])
         self.navigationController?.pushViewController(viewController , animated: true)
         return
     }
     
-    func updateGists(gists: [Gist]?) {
-        guard let gists = gists else {return }
-        
+    func updateGists() {
         DispatchQueue.main.async {
-            self.gists = gists
             self.tableView.reloadData()
         }
     }

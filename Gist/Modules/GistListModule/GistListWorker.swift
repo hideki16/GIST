@@ -8,11 +8,21 @@
 import Foundation
 
 protocol GistListWorkerProtocol {
-    func loadGists()
+    func fetchGists(completion: @escaping (Result<[Gist], Error>) -> Void)
 }
 
 class GistListWorker: GistListWorkerProtocol {
-    func loadGists() {
-        
+    
+    private let network: GistListNetworkProtocol
+    
+    init(network: GistListNetworkProtocol = GistListNetwork()) {
+        self.network = network
+    }
+    
+    func fetchGists(completion: @escaping (Result<[Gist], Error>) -> Void) {
+        network.fetchGists(completionHandler: {
+            result in
+            completion(.success(result))
+        })
     }
 }
