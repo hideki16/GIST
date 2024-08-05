@@ -9,24 +9,13 @@
 
 import UIKit
 
-class GistTableViewCell: UITableViewCell {
-    static let identifier = "GistTableViewCell"
+protocol GistTableViewCellProtocol {
+    func configureCell(gist: Gist)
+}
+
+class GistTableViewCell: UITableViewCell, GistTableViewCellProtocol {
     
-    var gist: Gist? {
-        didSet {
-            name.text = gist?.owner?.name ?? ""
-            avatar.downloaded(from: gist?.owner?.avatarImage ?? "")
-            
-            let components = gist?.creationDate?.timeSince(withFormat: "yyyy-MM-dd'T'HH:mm:ssZ")
-            if let month = components?.month, month != 0 {timeStamp.text = "Criado há \(month) mês/es"}
-            if let day = components?.day, day != 0 {timeStamp.text = "Criado há \(day) dia/s"}
-            if let min = components?.minute, min != 0 {timeStamp.text = "Criado há \(min) minuto/s"}
-            if let sec = components?.second, sec != 0 {timeStamp.text = "Criado há \(sec) segundo/s"}
-            
-            if let fileList =  gist?.files?.count {files.text = String(fileList)}
-            if let commentList = gist?.comments {comments.text = String(commentList)}
-        }
-    }
+    static let identifier = "GistTableViewCell"
     
     var contentStack: UIStackView = {
         var stack = UIStackView()
@@ -147,6 +136,20 @@ class GistTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configureCell(gist: Gist) {
+        name.text = gist.owner?.name ?? ""
+        avatar.downloaded(from: gist.owner?.avatarImage ?? "")
+        
+        let components = gist.creationDate?.timeSince(withFormat: "yyyy-MM-dd'T'HH:mm:ssZ")
+        if let month = components?.month, month != 0 {timeStamp.text = "Criado há \(month) mês/es"}
+        if let day = components?.day, day != 0 {timeStamp.text = "Criado há \(day) dia/s"}
+        if let min = components?.minute, min != 0 {timeStamp.text = "Criado há \(min) minuto/s"}
+        if let sec = components?.second, sec != 0 {timeStamp.text = "Criado há \(sec) segundo/s"}
+        
+        if let fileList =  gist.files?.count {files.text = String(fileList)}
+        if let commentList = gist.comments {comments.text = String(commentList)}
     }
 }
 

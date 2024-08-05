@@ -128,8 +128,10 @@ extension GistListView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: GistTableViewCell.identifier, for: indexPath) as! GistTableViewCell
-        cell.gist = self.viewModel.gists[indexPath.row]
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: GistTableViewCell.identifier, for: indexPath) as? GistTableViewCell else {
+            return UITableViewCell()
+        }
+        cell.configureCell(gist: self.viewModel.gists[indexPath.row])
         
         return cell
     }
