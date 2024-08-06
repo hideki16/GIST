@@ -40,7 +40,7 @@ class GistDetailView: UIViewController, GistDetailViewProtocol {
     
     var name: UILabel = {
         var label = UILabel()
-        label.text = "user"
+        label.text = ""
         label.textColor = UIColor(red: 197/255, green: 198/255, blue: 216/255, alpha: 1.0)
         label.font = UIFont(name: "Helvetica-Bold", size: 25)
         label.numberOfLines = 0
@@ -50,7 +50,7 @@ class GistDetailView: UIViewController, GistDetailViewProtocol {
     
     var descriptionLabel: UILabel = {
         var label = UILabel()
-        label.text = "user"
+        label.text = ""
         label.textColor = UIColor(red: 197/255, green: 198/255, blue: 216/255, alpha: 1.0)
         label.font = UIFont(name: "Helvetica-Bold", size: 20)
         label.numberOfLines = 0
