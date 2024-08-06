@@ -1,24 +1,18 @@
 //
-//  GistDetailInteractor.swift
+//  GistDetailNetwork.swift
 //  Gist
 //
-//  Created by gabriel hideki on 23/10/22.
+//  Created by gabriel hideki on 05/08/24.
 //
 
-import UIKit
+import Foundation
 
-protocol GistDetailInteractorProtocol {
-    var presenter: GistDetailPresenterProtocol? {get set}
-    
-    func loadGist(gistid: String, completionHandler: @escaping (Gist) -> Void)
+protocol GistDetailNetworkProtocol {
+    func fetchGist(gistid: String, completionHandler: @escaping (Gist) -> Void)
 }
 
-class GistDetailInteractor: GistDetailInteractorProtocol {
-    
-    var presenter: GistDetailPresenterProtocol?
-    
-    
-    func loadGist(gistid: String, completionHandler: @escaping (Gist) -> Void) {
+class GistDetailNetwork: GistDetailNetworkProtocol {
+    func fetchGist(gistid: String, completionHandler: @escaping (Gist) -> Void) {
         guard let url = URL(string: "https://api.github.com/gists/\(gistid)") else {return }
         
         var request = URLRequest(url: url)
@@ -40,4 +34,3 @@ class GistDetailInteractor: GistDetailInteractorProtocol {
         task.resume()
     }
 }
-
