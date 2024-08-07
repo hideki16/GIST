@@ -8,8 +8,8 @@
 import Foundation
 
 protocol GistListViewModelProtocol {
-    var worker: GistListWorkerProtocol {get set}
-    var gists: [Gist] {get set}
+    var worker: GistListWorkerProtocol { get }
+    var gists: [Gist] { get }
     
     func fetchGists(completion: @escaping (Bool) -> Void)
 }
@@ -24,7 +24,7 @@ class GistListViewModel: GistListViewModelProtocol {
     }
     
     func fetchGists(completion: @escaping (Bool) -> Void) {
-        worker.fetchGists(completion: {
+        worker.fetchGists(page: 0) {
             result in
             switch result {
             case .success(let gists):
@@ -34,6 +34,6 @@ class GistListViewModel: GistListViewModelProtocol {
                 print("Failed to load gists: \(error)")
                 completion(false)
             }
-        })
+        }
     }
 }

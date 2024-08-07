@@ -13,16 +13,23 @@ protocol GistDetailWorkerProtocol {
 
 class GistDetailWorker: GistDetailWorkerProtocol {
 
-    private let network: GistDetailNetworkProtocol
+    private let network: NetworkProtocol
     
-    init(network: GistDetailNetworkProtocol = GistDetailNetwork()) {
+    init(network: NetworkProtocol = Network(inject: Inject.self)) {
         self.network = network
     }
     
     func fetchGist(gistId: String, completion: @escaping (Result<Gist, any Error>) -> Void) {
-        network.fetchGist(gistid: gistId, completionHandler: {
-            result in
-            completion(.success(result))
-        })
+        let endpoint: RequestEndpoint = GistListRequestEndpoint.getDetail(gistId)
+        
+        network.request(requestEndpoint: endpoint) { result in
+            switch result {
+            case .success(let data):
+                guard let data = data, let response = try? JSONDecoder().decode(Gist.self, from: data) else {return }
+                completion(.success(response))
+            case .failure(let failure):
+                completion(.failure(failure))
+            }
+        }
     }
 }

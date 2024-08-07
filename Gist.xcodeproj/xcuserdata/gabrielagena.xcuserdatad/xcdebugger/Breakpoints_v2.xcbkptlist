@@ -7,17 +7,63 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "002CC10D-C3FE-43AE-AC23-1870908C024A"
+            uuid = "9682D711-D9F8-497E-9E4A-DD74868EDF4B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Gist/Modules/GistListModule/GistTableViewCell.swift"
+            filePath = "Gist/Modules/GistDetail/GistDetailWorker.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
-            landmarkName = "configureCell(gist:)"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "fetchGist(gistId:completion:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "91AC02FF-3E50-481E-AAA2-0BCA50ED3C40"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Gist/Modules/GistListModule/Network.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "request(requestEndpoint:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "91AC02FF-3E50-481E-AAA2-0BCA50ED3C40 - 974597c867a24d95"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Gist.Network.request(requestEndpoint: Gist.RequestEndpoint, completion: (Swift.Result&lt;Swift.Optional&lt;Foundation.Data&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Gist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gabrielagena/Documents/Xcode%20Projects/GIST/Gist/Modules/GistListModule/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34">
+               </Location>
+               <Location
+                  uuid = "91AC02FF-3E50-481E-AAA2-0BCA50ED3C40 - 4f6a36c5716d5f5a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Gist.Network.request(requestEndpoint: Gist.RequestEndpoint, completion: (Swift.Result&lt;Swift.Optional&lt;Foundation.Data&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Gist"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/gabrielagena/Documents/Xcode%20Projects/GIST/Gist/Modules/GistListModule/Network.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

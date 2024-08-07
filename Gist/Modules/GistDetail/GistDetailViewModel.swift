@@ -30,7 +30,7 @@ class GistDetailViewModel: GistDetailViewModelProtocol {
             return
         }
         
-        worker.fetchGist(gistId: id, completion: {
+        worker.fetchGist(gistId: id) {
             result in
             switch result {
             case .success(let gist):
@@ -40,6 +40,6 @@ class GistDetailViewModel: GistDetailViewModelProtocol {
                 print("Failed to load gists: \(error)")
                 completion(false)
             }
-        })
+        }
     }
 }

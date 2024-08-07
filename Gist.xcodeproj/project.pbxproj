@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		72064E972C609F0400BC0553 /* GistListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064E962C609F0400BC0553 /* GistListViewModel.swift */; };
 		72064E992C60BB7700BC0553 /* GistDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064E982C60BB7700BC0553 /* GistDetailViewModel.swift */; };
-		72064E9C2C60BBB100BC0553 /* GistDetailNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064E9B2C60BBB100BC0553 /* GistDetailNetwork.swift */; };
 		72064E9E2C60BBC700BC0553 /* GistDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064E9D2C60BBC700BC0553 /* GistDetailWorker.swift */; };
+		72064EA32C62B38100BC0553 /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EA22C62B38100BC0553 /* Inject.swift */; };
+		72064EAA2C62BFCE00BC0553 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EA92C62BFCE00BC0553 /* EndpointProtocol.swift */; };
+		72064EAC2C62BFF900BC0553 /* GistListRequestEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EAB2C62BFF900BC0553 /* GistListRequestEndpoint.swift */; };
 		726798F52C5EBD5D003EAC39 /* GistListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726798F42C5EBD5D003EAC39 /* GistListWorker.swift */; };
-		726798F72C5EBD6E003EAC39 /* GistListNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726798F62C5EBD6E003EAC39 /* GistListNetwork.swift */; };
+		726798F72C5EBD6E003EAC39 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726798F62C5EBD6E003EAC39 /* Network.swift */; };
 		72A8247E29018B2300A2619D /* Gist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8247D29018B2300A2619D /* Gist.swift */; };
 		72A82482290198E800A2619D /* GistFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A82481290198E800A2619D /* GistFile.swift */; };
 		72A8248529019D5800A2619D /* GistListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8248429019D5800A2619D /* GistListView.swift */; };
@@ -47,10 +49,12 @@
 /* Begin PBXFileReference section */
 		72064E962C609F0400BC0553 /* GistListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListViewModel.swift; sourceTree = "<group>"; };
 		72064E982C60BB7700BC0553 /* GistDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDetailViewModel.swift; sourceTree = "<group>"; };
-		72064E9B2C60BBB100BC0553 /* GistDetailNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDetailNetwork.swift; sourceTree = "<group>"; };
 		72064E9D2C60BBC700BC0553 /* GistDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDetailWorker.swift; sourceTree = "<group>"; };
+		72064EA22C62B38100BC0553 /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
+		72064EA92C62BFCE00BC0553 /* EndpointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
+		72064EAB2C62BFF900BC0553 /* GistListRequestEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListRequestEndpoint.swift; sourceTree = "<group>"; };
 		726798F42C5EBD5D003EAC39 /* GistListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListWorker.swift; sourceTree = "<group>"; };
-		726798F62C5EBD6E003EAC39 /* GistListNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListNetwork.swift; sourceTree = "<group>"; };
+		726798F62C5EBD6E003EAC39 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Network.swift; path = ../Modules/GistListModule/Network.swift; sourceTree = "<group>"; };
 		72A8247D29018B2300A2619D /* Gist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gist.swift; sourceTree = "<group>"; };
 		72A82481290198E800A2619D /* GistFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistFile.swift; sourceTree = "<group>"; };
 		72A8248429019D5800A2619D /* GistListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListView.swift; sourceTree = "<group>"; };
@@ -94,12 +98,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		72064E9A2C60BBA000BC0553 /* Network */ = {
+		72064EA12C62B37000BC0553 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				72064E9B2C60BBB100BC0553 /* GistDetailNetwork.swift */,
+				72064EA22C62B38100BC0553 /* Inject.swift */,
+			);
+			name = Constants;
+			sourceTree = "<group>";
+		};
+		72064EA52C62BF5B00BC0553 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				72064EA82C62BFC100BC0553 /* Endpoint */,
+				726798F62C5EBD6E003EAC39 /* Network.swift */,
 			);
 			name = Network;
+			sourceTree = "<group>";
+		};
+		72064EA82C62BFC100BC0553 /* Endpoint */ = {
+			isa = PBXGroup;
+			children = (
+				72064EA92C62BFCE00BC0553 /* EndpointProtocol.swift */,
+			);
+			name = Endpoint;
 			sourceTree = "<group>";
 		};
 		7230F48F2900780700DC7CE4 /* GistListModule */ = {
@@ -127,7 +148,7 @@
 		726798F32C5EBB78003EAC39 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				726798F62C5EBD6E003EAC39 /* GistListNetwork.swift */,
+				72064EAB2C62BFF900BC0553 /* GistListRequestEndpoint.swift */,
 			);
 			name = Network;
 			sourceTree = "<group>";
@@ -162,7 +183,6 @@
 		72AFB56329052E4700FAE603 /* GistDetail */ = {
 			isa = PBXGroup;
 			children = (
-				72064E9A2C60BBA000BC0553 /* Network */,
 				72AFB56A2905D18800FAE603 /* GistDetailView.swift */,
 				72064E982C60BB7700BC0553 /* GistDetailViewModel.swift */,
 				72064E9D2C60BBC700BC0553 /* GistDetailWorker.swift */,
@@ -200,6 +220,8 @@
 		72EFF070290076C80014DF5D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				72064EA52C62BF5B00BC0553 /* Network */,
+				72064EA12C62B37000BC0553 /* Constants */,
 				72AFB5572904C13400FAE603 /* Assets */,
 				72AFB5512903AF7E00FAE603 /* Helper */,
 				72EFF040290076740014DF5D /* AppDelegate.swift */,
@@ -340,6 +362,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72064EAA2C62BFCE00BC0553 /* EndpointProtocol.swift in Sources */,
+				72064EAC2C62BFF900BC0553 /* GistListRequestEndpoint.swift in Sources */,
 				72A8247E29018B2300A2619D /* Gist.swift in Sources */,
 				72064E9E2C60BBC700BC0553 /* GistDetailWorker.swift in Sources */,
 				72AFB56229052E1500FAE603 /* String+Extension.swift in Sources */,
@@ -350,9 +374,9 @@
 				72AFB56D2905DD9100FAE603 /* ViewCodeProtocol.swift in Sources */,
 				72064E972C609F0400BC0553 /* GistListViewModel.swift in Sources */,
 				72A8248B2901D42D00A2619D /* GistTableViewCell.swift in Sources */,
-				72064E9C2C60BBB100BC0553 /* GistDetailNetwork.swift in Sources */,
+				72064EA32C62B38100BC0553 /* Inject.swift in Sources */,
 				72A8248529019D5800A2619D /* GistListView.swift in Sources */,
-				726798F72C5EBD6E003EAC39 /* GistListNetwork.swift in Sources */,
+				726798F72C5EBD6E003EAC39 /* Network.swift in Sources */,
 				72EFF043290076740014DF5D /* SceneDelegate.swift in Sources */,
 				72AFB5532903B03B00FAE603 /* UIImage+Extension.swift in Sources */,
 				72064E992C60BB7700BC0553 /* GistDetailViewModel.swift in Sources */,
