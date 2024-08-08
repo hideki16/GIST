@@ -13,6 +13,9 @@
 		72064EA32C62B38100BC0553 /* Inject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EA22C62B38100BC0553 /* Inject.swift */; };
 		72064EAA2C62BFCE00BC0553 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EA92C62BFCE00BC0553 /* EndpointProtocol.swift */; };
 		72064EAC2C62BFF900BC0553 /* GistListRequestEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EAB2C62BFF900BC0553 /* GistListRequestEndpoint.swift */; };
+		72064EAF2C631BFE00BC0553 /* GistListWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EAE2C631BFE00BC0553 /* GistListWorkerTests.swift */; };
+		72064EB22C6326BD00BC0553 /* GistListWorkerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EB12C6326BD00BC0553 /* GistListWorkerUITests.swift */; };
+		72064EB52C632AA000BC0553 /* GistError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EB42C632AA000BC0553 /* GistError.swift */; };
 		726798F52C5EBD5D003EAC39 /* GistListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726798F42C5EBD5D003EAC39 /* GistListWorker.swift */; };
 		726798F72C5EBD6E003EAC39 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726798F62C5EBD6E003EAC39 /* Network.swift */; };
 		72A8247E29018B2300A2619D /* Gist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8247D29018B2300A2619D /* Gist.swift */; };
@@ -53,6 +56,9 @@
 		72064EA22C62B38100BC0553 /* Inject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Inject.swift; sourceTree = "<group>"; };
 		72064EA92C62BFCE00BC0553 /* EndpointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
 		72064EAB2C62BFF900BC0553 /* GistListRequestEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListRequestEndpoint.swift; sourceTree = "<group>"; };
+		72064EAE2C631BFE00BC0553 /* GistListWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListWorkerTests.swift; sourceTree = "<group>"; };
+		72064EB12C6326BD00BC0553 /* GistListWorkerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListWorkerUITests.swift; sourceTree = "<group>"; };
+		72064EB42C632AA000BC0553 /* GistError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistError.swift; sourceTree = "<group>"; };
 		726798F42C5EBD5D003EAC39 /* GistListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListWorker.swift; sourceTree = "<group>"; };
 		726798F62C5EBD6E003EAC39 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Network.swift; path = ../Modules/GistListModule/Network.swift; sourceTree = "<group>"; };
 		72A8247D29018B2300A2619D /* Gist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gist.swift; sourceTree = "<group>"; };
@@ -109,6 +115,7 @@
 		72064EA52C62BF5B00BC0553 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				72064EB32C632A8A00BC0553 /* GistError */,
 				72064EA82C62BFC100BC0553 /* Endpoint */,
 				726798F62C5EBD6E003EAC39 /* Network.swift */,
 			);
@@ -121,6 +128,30 @@
 				72064EA92C62BFCE00BC0553 /* EndpointProtocol.swift */,
 			);
 			name = Endpoint;
+			sourceTree = "<group>";
+		};
+		72064EAD2C631AF200BC0553 /* GistTests */ = {
+			isa = PBXGroup;
+			children = (
+				72064EAE2C631BFE00BC0553 /* GistListWorkerTests.swift */,
+			);
+			path = GistTests;
+			sourceTree = "<group>";
+		};
+		72064EB02C63251E00BC0553 /* GistUITests */ = {
+			isa = PBXGroup;
+			children = (
+				72064EB12C6326BD00BC0553 /* GistListWorkerUITests.swift */,
+			);
+			path = GistUITests;
+			sourceTree = "<group>";
+		};
+		72064EB32C632A8A00BC0553 /* GistError */ = {
+			isa = PBXGroup;
+			children = (
+				72064EB42C632AA000BC0553 /* GistError.swift */,
+			);
+			name = GistError;
 			sourceTree = "<group>";
 		};
 		7230F48F2900780700DC7CE4 /* GistListModule */ = {
@@ -194,6 +225,8 @@
 			isa = PBXGroup;
 			children = (
 				72EFF03F290076740014DF5D /* Gist */,
+				72064EAD2C631AF200BC0553 /* GistTests */,
+				72064EB02C63251E00BC0553 /* GistUITests */,
 				72EFF03E290076740014DF5D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -303,10 +336,12 @@
 					};
 					72EFF052290076740014DF5D = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1540;
 						TestTargetID = 72EFF03C290076740014DF5D;
 					};
 					72EFF05C290076740014DF5D = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1540;
 						TestTargetID = 72EFF03C290076740014DF5D;
 					};
 				};
@@ -367,6 +402,7 @@
 				72A8247E29018B2300A2619D /* Gist.swift in Sources */,
 				72064E9E2C60BBC700BC0553 /* GistDetailWorker.swift in Sources */,
 				72AFB56229052E1500FAE603 /* String+Extension.swift in Sources */,
+				72064EB52C632AA000BC0553 /* GistError.swift in Sources */,
 				72A82482290198E800A2619D /* GistFile.swift in Sources */,
 				72EFF041290076740014DF5D /* AppDelegate.swift in Sources */,
 				726798F52C5EBD5D003EAC39 /* GistListWorker.swift in Sources */,
@@ -387,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72064EAF2C631BFE00BC0553 /* GistListWorkerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72064EB22C6326BD00BC0553 /* GistListWorkerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -599,6 +637,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -607,6 +646,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gist.test.GistTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gist.app/Gist";
@@ -618,6 +658,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -636,6 +677,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -643,6 +685,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.gist.test.GistUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Gist;
@@ -653,6 +696,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;

@@ -7,7 +7,7 @@
 //
 //import Foundation
 
-struct GistFile: Codable {
+struct GistFile: Codable, Equatable {
     var filename: String?
     var type: String?
     var language: String?

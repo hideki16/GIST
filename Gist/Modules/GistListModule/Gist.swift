@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-struct Gist: Codable {
+struct Gist: Codable, Equatable {
     var id: String?
     var owner: Owner?
     var description: String?
@@ -29,7 +29,7 @@ struct Gist: Codable {
     }
 }
 
-struct Owner: Codable {
+struct Owner: Codable, Equatable {
     var name: String?
     var avatarImage: String?
     

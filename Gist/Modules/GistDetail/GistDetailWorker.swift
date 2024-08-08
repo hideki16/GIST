@@ -25,7 +25,9 @@ class GistDetailWorker: GistDetailWorkerProtocol {
         network.request(requestEndpoint: endpoint) { result in
             switch result {
             case .success(let data):
-                guard let data = data, let response = try? JSONDecoder().decode(Gist.self, from: data) else {return }
+                guard let data = data, let response = try? JSONDecoder().decode(Gist.self, from: data) else {
+                    completion(.failure(GistsError.parse))
+                    return }
                 completion(.success(response))
             case .failure(let failure):
                 completion(.failure(failure))

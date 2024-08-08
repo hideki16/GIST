@@ -15,8 +15,8 @@ enum GistListRequestEndpoint: RequestEndpoint {
         switch self {
         case .getList:
             return "/gists/public"
-        case .getDetail:
-            return "/gists"
+        case let .getDetail(id):
+            return "/gists/\(id)"
         }
     }
     
@@ -24,8 +24,8 @@ enum GistListRequestEndpoint: RequestEndpoint {
         switch self {
         case let .getList(page):
             return ["page": "\(page)"]
-        case let .getDetail(id):
-            return [id: ""]
+        case .getDetail:
+            return [:]
         }
     }
     
