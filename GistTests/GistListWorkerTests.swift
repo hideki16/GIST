@@ -17,38 +17,54 @@ class GistListWorkerTests: XCTestCase {
         networkSpy.returnedCompletion = .success(.makeData(value: dummyDataDictionary))
     }
     
-    func testSuccessThenParseError() {
+    func testSuccessWhenParseFailure() {
         //given
-        let dummyDataDictionary: [[String: Any]] = [["id": "1231231"]]
+        let dummyGistId = "1231231"
+        let dummyDataDictionary: [[String: Any]] = [["":""]]
         networkSpy.returnedCompletion = .success(.makeData(value: dummyDataDictionary))
         
-        //when 
-        sut.fetchGists(page: 0) { result in
+        //when
+        let expectation = self.expectation(description: "fetchGists completion")
+        sut.fetchGists(page: 0) {  result in
             //then
-            if case let .success(data) = result {
-                XCTAssertNil(data)
+            switch result {
+            case .success(let gists):
+                XCTAssertTrue(gists.isEmpty, "Sucesso porém lista vazia")
+                XCTAssertNotEqual(gists.first?.id, dummyGistId, "O ID do primeiro gist deveria ser \(dummyGistId).")
+            case .failure:
+                XCTFail("Requisição falhou")
             }
-            
             XCTAssertEqual(self.networkSpy.requestCount, 1)
+            expectation.fulfill()
         }
+        
+        waitForExpectations(timeout: 1.0, handler: nil)
     }
     
     func testSuccessWhenParseSuccess() {
         //given
-        let dummyDataDictionary: [[String: Any]] = [["id": "1231231"]]
+        let dummyGistId = "1231231"
+        let dummyDataDictionary: [[String: Any]] = [["id": "\(dummyGistId)"]]
         networkSpy.returnedCompletion = .success(.makeData(value: dummyDataDictionary))
         
         //when
-        sut.fetchGists(page: 0) { result in
+        let expectation = self.expectation(description: "fetchGists completion")
+        sut.fetchGists(page: 0) {  result in
             //then
-            if case let .success(data) = result {
-                XCTAssertNotNil(data)
+            switch result {
+            case .success(let gists):
+                XCTAssertFalse(gists.isEmpty, "Sucesso porém lista vazia")
+                XCTAssertEqual(gists.first?.id, dummyGistId, "O ID do primeiro gist deveria ser \(dummyGistId).")
+            case .failure:
+                XCTFail("Requisição falhou")
             }
-            
             XCTAssertEqual(self.networkSpy.requestCount, 1)
+            expectation.fulfill()
         }
+        
+        waitForExpectations(timeout: 1.0, handler: nil)
     }
-    
+
     func testFetchGistsWhenFailure() {
         //given
         networkSpy.returnedCompletion = .failure(GistsError.notFound)
@@ -93,10 +109,15 @@ extension Data {
                 return data
             } catch {
                 return nil
-                // Tratamento de erro: a conversão falhou
             }
-        } else {
-            return nil
+        } else if let array = value as? [[String: Any]] {
+            do {
+                let data = try JSONSerialization.data(withJSONObject: array, options: [])
+                return data
+            } catch {
+                return nil
+            }
         }
+        return nil
     }
 }
