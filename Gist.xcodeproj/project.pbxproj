@@ -16,6 +16,9 @@
 		72064EAF2C631BFE00BC0553 /* GistListWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EAE2C631BFE00BC0553 /* GistListWorkerTests.swift */; };
 		72064EB22C6326BD00BC0553 /* GistListWorkerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EB12C6326BD00BC0553 /* GistListWorkerUITests.swift */; };
 		72064EB52C632AA000BC0553 /* GistError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EB42C632AA000BC0553 /* GistError.swift */; };
+		72064EBB2C675A5F00BC0553 /* NetworkSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EBA2C675A5F00BC0553 /* NetworkSpy.swift */; };
+		72064EBE2C675AD700BC0553 /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EBD2C675AD700BC0553 /* Data+Extensions.swift */; };
+		72064EC12C675B5C00BC0553 /* GistWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EC02C675B5C00BC0553 /* GistWorkerTests.swift */; };
 		726798F52C5EBD5D003EAC39 /* GistListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726798F42C5EBD5D003EAC39 /* GistListWorker.swift */; };
 		726798F72C5EBD6E003EAC39 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726798F62C5EBD6E003EAC39 /* Network.swift */; };
 		72A8247E29018B2300A2619D /* Gist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8247D29018B2300A2619D /* Gist.swift */; };
@@ -59,6 +62,9 @@
 		72064EAE2C631BFE00BC0553 /* GistListWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListWorkerTests.swift; sourceTree = "<group>"; };
 		72064EB12C6326BD00BC0553 /* GistListWorkerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListWorkerUITests.swift; sourceTree = "<group>"; };
 		72064EB42C632AA000BC0553 /* GistError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistError.swift; sourceTree = "<group>"; };
+		72064EBA2C675A5F00BC0553 /* NetworkSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSpy.swift; sourceTree = "<group>"; };
+		72064EBD2C675AD700BC0553 /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
+		72064EC02C675B5C00BC0553 /* GistWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistWorkerTests.swift; sourceTree = "<group>"; };
 		726798F42C5EBD5D003EAC39 /* GistListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListWorker.swift; sourceTree = "<group>"; };
 		726798F62C5EBD6E003EAC39 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Network.swift; path = ../Modules/GistListModule/Network.swift; sourceTree = "<group>"; };
 		72A8247D29018B2300A2619D /* Gist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gist.swift; sourceTree = "<group>"; };
@@ -133,7 +139,8 @@
 		72064EAD2C631AF200BC0553 /* GistTests */ = {
 			isa = PBXGroup;
 			children = (
-				72064EAE2C631BFE00BC0553 /* GistListWorkerTests.swift */,
+				72064EB82C675A2E00BC0553 /* Helpers */,
+				72064EBF2C675B2500BC0553 /* Modules */,
 			);
 			path = GistTests;
 			sourceTree = "<group>";
@@ -152,6 +159,56 @@
 				72064EB42C632AA000BC0553 /* GistError.swift */,
 			);
 			name = GistError;
+			sourceTree = "<group>";
+		};
+		72064EB62C67596E00BC0553 /* GistList */ = {
+			isa = PBXGroup;
+			children = (
+				72064EAE2C631BFE00BC0553 /* GistListWorkerTests.swift */,
+			);
+			path = GistList;
+			sourceTree = "<group>";
+		};
+		72064EB72C67597E00BC0553 /* GistDetail */ = {
+			isa = PBXGroup;
+			children = (
+				72064EC02C675B5C00BC0553 /* GistWorkerTests.swift */,
+			);
+			path = GistDetail;
+			sourceTree = "<group>";
+		};
+		72064EB82C675A2E00BC0553 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				72064EBC2C675AB100BC0553 /* Extension */,
+				72064EB92C675A3800BC0553 /* Spies */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		72064EB92C675A3800BC0553 /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				72064EBA2C675A5F00BC0553 /* NetworkSpy.swift */,
+			);
+			name = Spies;
+			sourceTree = "<group>";
+		};
+		72064EBC2C675AB100BC0553 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				72064EBD2C675AD700BC0553 /* Data+Extensions.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		72064EBF2C675B2500BC0553 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				72064EB62C67596E00BC0553 /* GistList */,
+				72064EB72C67597E00BC0553 /* GistDetail */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		7230F48F2900780700DC7CE4 /* GistListModule */ = {
@@ -423,7 +480,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72064EC12C675B5C00BC0553 /* GistWorkerTests.swift in Sources */,
+				72064EBE2C675AD700BC0553 /* Data+Extensions.swift in Sources */,
 				72064EAF2C631BFE00BC0553 /* GistListWorkerTests.swift in Sources */,
+				72064EBB2C675A5F00BC0553 /* NetworkSpy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
