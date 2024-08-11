@@ -14,11 +14,12 @@
 		72064EAA2C62BFCE00BC0553 /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EA92C62BFCE00BC0553 /* EndpointProtocol.swift */; };
 		72064EAC2C62BFF900BC0553 /* GistListRequestEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EAB2C62BFF900BC0553 /* GistListRequestEndpoint.swift */; };
 		72064EAF2C631BFE00BC0553 /* GistListWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EAE2C631BFE00BC0553 /* GistListWorkerTests.swift */; };
-		72064EB22C6326BD00BC0553 /* GistListWorkerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EB12C6326BD00BC0553 /* GistListWorkerUITests.swift */; };
 		72064EB52C632AA000BC0553 /* GistError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EB42C632AA000BC0553 /* GistError.swift */; };
 		72064EBB2C675A5F00BC0553 /* NetworkSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EBA2C675A5F00BC0553 /* NetworkSpy.swift */; };
 		72064EBE2C675AD700BC0553 /* Data+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EBD2C675AD700BC0553 /* Data+Extensions.swift */; };
-		72064EC12C675B5C00BC0553 /* GistWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EC02C675B5C00BC0553 /* GistWorkerTests.swift */; };
+		72064EC12C675B5C00BC0553 /* GistDetailWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EC02C675B5C00BC0553 /* GistDetailWorkerTests.swift */; };
+		72064EC32C68B18B00BC0553 /* GistDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EC22C68B18B00BC0553 /* GistDetailViewModelTests.swift */; };
+		72064EC52C68B21900BC0553 /* GistListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EC42C68B21900BC0553 /* GistListViewModelTests.swift */; };
 		726798F52C5EBD5D003EAC39 /* GistListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726798F42C5EBD5D003EAC39 /* GistListWorker.swift */; };
 		726798F72C5EBD6E003EAC39 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726798F62C5EBD6E003EAC39 /* Network.swift */; };
 		72A8247E29018B2300A2619D /* Gist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8247D29018B2300A2619D /* Gist.swift */; };
@@ -43,13 +44,6 @@
 			remoteGlobalIDString = 72EFF03C290076740014DF5D;
 			remoteInfo = Gist;
 		};
-		72EFF05E290076740014DF5D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 72EFF035290076740014DF5D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 72EFF03C290076740014DF5D;
-			remoteInfo = Gist;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -60,11 +54,12 @@
 		72064EA92C62BFCE00BC0553 /* EndpointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
 		72064EAB2C62BFF900BC0553 /* GistListRequestEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListRequestEndpoint.swift; sourceTree = "<group>"; };
 		72064EAE2C631BFE00BC0553 /* GistListWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListWorkerTests.swift; sourceTree = "<group>"; };
-		72064EB12C6326BD00BC0553 /* GistListWorkerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListWorkerUITests.swift; sourceTree = "<group>"; };
 		72064EB42C632AA000BC0553 /* GistError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistError.swift; sourceTree = "<group>"; };
 		72064EBA2C675A5F00BC0553 /* NetworkSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSpy.swift; sourceTree = "<group>"; };
 		72064EBD2C675AD700BC0553 /* Data+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extensions.swift"; sourceTree = "<group>"; };
-		72064EC02C675B5C00BC0553 /* GistWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistWorkerTests.swift; sourceTree = "<group>"; };
+		72064EC02C675B5C00BC0553 /* GistDetailWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDetailWorkerTests.swift; sourceTree = "<group>"; };
+		72064EC22C68B18B00BC0553 /* GistDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDetailViewModelTests.swift; sourceTree = "<group>"; };
+		72064EC42C68B21900BC0553 /* GistListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListViewModelTests.swift; sourceTree = "<group>"; };
 		726798F42C5EBD5D003EAC39 /* GistListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListWorker.swift; sourceTree = "<group>"; };
 		726798F62C5EBD6E003EAC39 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Network.swift; path = ../Modules/GistListModule/Network.swift; sourceTree = "<group>"; };
 		72A8247D29018B2300A2619D /* Gist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gist.swift; sourceTree = "<group>"; };
@@ -82,7 +77,6 @@
 		72EFF04C290076740014DF5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72EFF04E290076740014DF5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72EFF053290076740014DF5D /* GistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		72EFF05D290076740014DF5D /* GistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,13 +88,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		72EFF050290076740014DF5D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		72EFF05A290076740014DF5D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -145,14 +132,6 @@
 			path = GistTests;
 			sourceTree = "<group>";
 		};
-		72064EB02C63251E00BC0553 /* GistUITests */ = {
-			isa = PBXGroup;
-			children = (
-				72064EB12C6326BD00BC0553 /* GistListWorkerUITests.swift */,
-			);
-			path = GistUITests;
-			sourceTree = "<group>";
-		};
 		72064EB32C632A8A00BC0553 /* GistError */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +143,7 @@
 		72064EB62C67596E00BC0553 /* GistList */ = {
 			isa = PBXGroup;
 			children = (
+				72064EC42C68B21900BC0553 /* GistListViewModelTests.swift */,
 				72064EAE2C631BFE00BC0553 /* GistListWorkerTests.swift */,
 			);
 			path = GistList;
@@ -172,7 +152,8 @@
 		72064EB72C67597E00BC0553 /* GistDetail */ = {
 			isa = PBXGroup;
 			children = (
-				72064EC02C675B5C00BC0553 /* GistWorkerTests.swift */,
+				72064EC22C68B18B00BC0553 /* GistDetailViewModelTests.swift */,
+				72064EC02C675B5C00BC0553 /* GistDetailWorkerTests.swift */,
 			);
 			path = GistDetail;
 			sourceTree = "<group>";
@@ -283,7 +264,6 @@
 			children = (
 				72EFF03F290076740014DF5D /* Gist */,
 				72064EAD2C631AF200BC0553 /* GistTests */,
-				72064EB02C63251E00BC0553 /* GistUITests */,
 				72EFF03E290076740014DF5D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -293,7 +273,6 @@
 			children = (
 				72EFF03D290076740014DF5D /* Gist.app */,
 				72EFF053290076740014DF5D /* GistTests.xctest */,
-				72EFF05D290076740014DF5D /* GistUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -360,24 +339,6 @@
 			productReference = 72EFF053290076740014DF5D /* GistTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		72EFF05C290076740014DF5D /* GistUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 72EFF06D290076740014DF5D /* Build configuration list for PBXNativeTarget "GistUITests" */;
-			buildPhases = (
-				72EFF059290076740014DF5D /* Sources */,
-				72EFF05A290076740014DF5D /* Frameworks */,
-				72EFF05B290076740014DF5D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				72EFF05F290076740014DF5D /* PBXTargetDependency */,
-			);
-			name = GistUITests;
-			productName = GistUITests;
-			productReference = 72EFF05D290076740014DF5D /* GistUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -392,11 +353,6 @@
 						CreatedOnToolsVersion = 13.4.1;
 					};
 					72EFF052290076740014DF5D = {
-						CreatedOnToolsVersion = 13.4.1;
-						LastSwiftMigration = 1540;
-						TestTargetID = 72EFF03C290076740014DF5D;
-					};
-					72EFF05C290076740014DF5D = {
 						CreatedOnToolsVersion = 13.4.1;
 						LastSwiftMigration = 1540;
 						TestTargetID = 72EFF03C290076740014DF5D;
@@ -418,7 +374,6 @@
 			targets = (
 				72EFF03C290076740014DF5D /* Gist */,
 				72EFF052290076740014DF5D /* GistTests */,
-				72EFF05C290076740014DF5D /* GistUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -434,13 +389,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		72EFF051290076740014DF5D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		72EFF05B290076740014DF5D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -480,18 +428,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72064EC12C675B5C00BC0553 /* GistWorkerTests.swift in Sources */,
+				72064EC12C675B5C00BC0553 /* GistDetailWorkerTests.swift in Sources */,
 				72064EBE2C675AD700BC0553 /* Data+Extensions.swift in Sources */,
+				72064EC32C68B18B00BC0553 /* GistDetailViewModelTests.swift in Sources */,
 				72064EAF2C631BFE00BC0553 /* GistListWorkerTests.swift in Sources */,
 				72064EBB2C675A5F00BC0553 /* NetworkSpy.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		72EFF059290076740014DF5D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				72064EB22C6326BD00BC0553 /* GistListWorkerUITests.swift in Sources */,
+				72064EC52C68B21900BC0553 /* GistListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,11 +444,6 @@
 			isa = PBXTargetDependency;
 			target = 72EFF03C290076740014DF5D /* Gist */;
 			targetProxy = 72EFF054290076740014DF5D /* PBXContainerItemProxy */;
-		};
-		72EFF05F290076740014DF5D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 72EFF03C290076740014DF5D /* Gist */;
-			targetProxy = 72EFF05E290076740014DF5D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -733,43 +670,6 @@
 			};
 			name = Release;
 		};
-		72EFF06E290076740014DF5D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gist.test.GistUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Gist;
-			};
-			name = Debug;
-		};
-		72EFF06F290076740014DF5D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gist.test.GistUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Gist;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -796,15 +696,6 @@
 			buildConfigurations = (
 				72EFF06B290076740014DF5D /* Debug */,
 				72EFF06C290076740014DF5D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		72EFF06D290076740014DF5D /* Build configuration list for PBXNativeTarget "GistUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				72EFF06E290076740014DF5D /* Debug */,
-				72EFF06F290076740014DF5D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

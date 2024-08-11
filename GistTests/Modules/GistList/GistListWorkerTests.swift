@@ -13,15 +13,15 @@ class GistListWorkerTests: XCTestCase {
     private lazy var sut: GistListWorker = .init(network: networkSpy)
     
     func testSuccessWhenParseFailure() {
-        //given
+        //Given
         let dummyGistId = "1231231"
         let dummyDataDictionary: [[String: Any]] = [["":""]]
         networkSpy.returnedCompletion = .success(.makeData(value: dummyDataDictionary))
         
-        //when
+        //When
         let expectation = self.expectation(description: "fetchGists completion")
         sut.fetchGists(page: 0) { result in
-            //then
+            //Then
             switch result {
             case .success(let gists):
                 XCTAssertNotEqual(gists.first?.id, dummyGistId, "O idw2eeeeeee2")
@@ -36,15 +36,15 @@ class GistListWorkerTests: XCTestCase {
     }
     
     func testSuccessWhenParseSuccess() {
-        //given
+        //Given
         let dummyGistId = "1231231"
         let dummyDataDictionary: [[String: Any]] = [["id": "\(dummyGistId)"]]
         networkSpy.returnedCompletion = .success(.makeData(value: dummyDataDictionary))
         
-        //when
+        //When
         let expectation = self.expectation(description: "fetchGists completion")
         sut.fetchGists(page: 0) { result in
-            //then
+            //Then
             switch result {
             case .success(let gists):
                 XCTAssertFalse(gists.isEmpty, "Sucesso porém lista vazia")
@@ -60,24 +60,19 @@ class GistListWorkerTests: XCTestCase {
     }
     
     func testFetchGistsWhenFailure() {
-        //given
+        //Given
         networkSpy.returnedCompletion = .failure(GistsError.notFound)
         
-        //when
+        //When
         sut.fetchGists(page: 0) { result in
-            //then
+            //Then
             switch result {
             case .success(let success):
                 XCTAssertNil(success)
             case .failure(let failure):
                 XCTAssertEqual(failure as? GistsError, GistsError.notFound)
             }
-            
-            XCTAssertEqual(self.networkSpy.requestCount, 1)
         }
-    }
-    
-    func testNil() {
-        networkSpy.returnedCompletion = .success(nil)
+        XCTAssertEqual(self.networkSpy.requestCount, 1)
     }
 }
