@@ -22,7 +22,7 @@ class GistTableViewCell: UITableViewCell, GistTableViewCellProtocol {
         stack.axis = .vertical
         stack.alignment = .top
         stack.distribution = .fillProportionally
-        stack.spacing = 30
+        stack.spacing = DesignSystem.Spacing.xl
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -32,7 +32,7 @@ class GistTableViewCell: UITableViewCell, GistTableViewCellProtocol {
         stack.axis = .horizontal
         stack.alignment = .center
         stack.distribution = .fillProportionally
-        stack.spacing = 10
+        stack.spacing = DesignSystem.Spacing.s
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -58,9 +58,9 @@ class GistTableViewCell: UITableViewCell, GistTableViewCellProtocol {
     
     var name: UILabel = {
         var label = UILabel()
-        label.text = "user"
-        label.textColor = UIColor(red: 107/255, green: 164/255, blue: 248/255, alpha: 1.0)
-        label.font = UIFont(name: "Helvetica", size: 18)
+        label.text = ""
+        label.textColor = DesignSystem.Colors.titleTextColor
+        label.font = DesignSystem.Fonts.bodyFont
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -70,8 +70,8 @@ class GistTableViewCell: UITableViewCell, GistTableViewCellProtocol {
         var label = UILabel()
         label.text = "Criado agora"
         label.numberOfLines = 0
-        label.textColor = UIColor(red: 141/255, green: 148/255, blue: 157/255, alpha: 1.0)
-        label.font = UIFont(name: "Helvetica", size: 14)
+        label.textColor = DesignSystem.Colors.textColor
+        label.font = DesignSystem.Fonts.captionFont
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -81,7 +81,7 @@ class GistTableViewCell: UITableViewCell, GistTableViewCellProtocol {
         stack.axis = .horizontal
         stack.alignment = .center
         stack.distribution = .fillProportionally
-        stack.spacing = 5
+        stack.spacing = DesignSystem.Spacing.xs
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -91,7 +91,7 @@ class GistTableViewCell: UITableViewCell, GistTableViewCellProtocol {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleToFill
         image.clipsToBounds = true
-        image.tintColor = UIColor(red: 141/255, green: 148/255, blue: 157/255, alpha: 1.0)
+        image.tintColor = DesignSystem.Colors.textColor
         image.image = UIImage(named: "code-square")
         return image
     }()
@@ -99,8 +99,8 @@ class GistTableViewCell: UITableViewCell, GistTableViewCellProtocol {
     var files: UILabel = {
         var label = UILabel()
         label.text = "-"
-        label.textColor = UIColor(red: 141/255, green: 148/255, blue: 157/255, alpha: 1.0)
-        label.font = UIFont(name: "Helvetica", size: 18)
+        label.textColor = DesignSystem.Colors.textColor
+        label.font = DesignSystem.Fonts.bodyFont
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -112,7 +112,7 @@ class GistTableViewCell: UITableViewCell, GistTableViewCellProtocol {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleToFill
         image.clipsToBounds = true
-        image.tintColor = UIColor(red: 141/255, green: 148/255, blue: 157/255, alpha: 1.0)
+        image.tintColor = DesignSystem.Colors.textColor
         image.image = UIImage(named: "comment")
         return image
     }()
@@ -120,8 +120,8 @@ class GistTableViewCell: UITableViewCell, GistTableViewCellProtocol {
     var comments: UILabel = {
         var label = UILabel()
         label.text = "-"
-        label.textColor = UIColor(red: 141/255, green: 148/255, blue: 157/255, alpha: 1.0)
-        label.font = UIFont(name: "Helvetica", size: 18)
+        label.textColor = DesignSystem.Colors.textColor
+        label.font = DesignSystem.Fonts.bodyFont
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         
@@ -156,7 +156,7 @@ class GistTableViewCell: UITableViewCell, GistTableViewCellProtocol {
 extension GistTableViewCell {
     func setupView() {
         self.selectionStyle = .none
-        self.backgroundColor = .clear
+        self.backgroundColor = DesignSystem.Colors.backgroundColor
         self.setupSubviews()
         self.setupConstraints()
     }
@@ -182,16 +182,16 @@ extension GistTableViewCell {
     func setupConstraints() {
         
         NSLayoutConstraint.activate([
-            self.contentStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 10),
-            self.contentStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            self.contentStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
-            self.contentStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -15)
+            self.contentStack.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: DesignSystem.Spacing.s),
+            self.contentStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: DesignSystem.Spacing.s),
+            self.contentStack.topAnchor.constraint(equalTo: self.topAnchor, constant: DesignSystem.Spacing.m),
+            self.contentStack.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -DesignSystem.Spacing.m)
         ])
         
         NSLayoutConstraint.activate([
             self.headerStack.widthAnchor.constraint(equalTo: contentStack.widthAnchor),
-            self.headerStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            self.headerStack.topAnchor.constraint(equalTo: self.topAnchor, constant: 10)
+            self.headerStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: DesignSystem.Spacing.s),
+            self.headerStack.topAnchor.constraint(equalTo: self.topAnchor, constant: DesignSystem.Spacing.s)
         ])
         
         NSLayoutConstraint.activate([
@@ -199,21 +199,21 @@ extension GistTableViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            self.avatar.widthAnchor.constraint(equalToConstant: 40),
-            self.avatar.heightAnchor.constraint(equalToConstant: 40),
-            self.fileIcon.widthAnchor.constraint(equalToConstant: 15),
-            self.fileIcon.heightAnchor.constraint(equalToConstant: 15),
-            self.commentsIcon.widthAnchor.constraint(equalToConstant: 15),
-            self.commentsIcon.heightAnchor.constraint(equalToConstant: 15),
+            self.avatar.widthAnchor.constraint(equalToConstant: DesignSystem.Spacing.xxl),
+            self.avatar.heightAnchor.constraint(equalToConstant: DesignSystem.Spacing.xxl),
+            self.fileIcon.widthAnchor.constraint(equalToConstant: DesignSystem.Spacing.m),
+            self.fileIcon.heightAnchor.constraint(equalToConstant: DesignSystem.Spacing.m),
+            self.commentsIcon.widthAnchor.constraint(equalToConstant: DesignSystem.Spacing.m),
+            self.commentsIcon.heightAnchor.constraint(equalToConstant: DesignSystem.Spacing.m),
         ])
         
         NSLayoutConstraint.activate([
-            self.name.heightAnchor.constraint(equalToConstant: 20),
-            self.timeStamp.heightAnchor.constraint(equalToConstant: 30),
-            self.files.heightAnchor.constraint(equalToConstant: 20),
-            self.files.widthAnchor.constraint(equalToConstant: 30),
-            self.comments.heightAnchor.constraint(equalToConstant: 20),
-            self.comments.widthAnchor.constraint(equalToConstant: 30),
+            self.name.heightAnchor.constraint(equalToConstant: DesignSystem.Spacing.l),
+            self.timeStamp.heightAnchor.constraint(equalToConstant: DesignSystem.Spacing.xl),
+            self.files.heightAnchor.constraint(equalToConstant: DesignSystem.Spacing.l),
+            self.files.widthAnchor.constraint(equalToConstant: DesignSystem.Spacing.xl),
+            self.comments.heightAnchor.constraint(equalToConstant: DesignSystem.Spacing.l),
+            self.comments.widthAnchor.constraint(equalToConstant: DesignSystem.Spacing.xl),
         ])
 
         self.layoutIfNeeded()

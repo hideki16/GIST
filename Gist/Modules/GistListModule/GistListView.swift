@@ -32,7 +32,7 @@ class GistListView: UIViewController, GistListViewProtocol {
         stack.axis = .horizontal
         stack.alignment = .center
         stack.distribution = .fillProportionally
-        stack.spacing = 5
+        stack.spacing = DesignSystem.Spacing.xs
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -42,7 +42,7 @@ class GistListView: UIViewController, GistListViewProtocol {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleToFill
         image.clipsToBounds = true
-        image.tintColor = .white
+        image.tintColor = DesignSystem.Colors.tertiaryColor
         image.image = UIImage(named: "git")
         return image
     }()
@@ -52,7 +52,7 @@ class GistListView: UIViewController, GistListViewProtocol {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleToFill
         image.clipsToBounds = true
-        image.tintColor = .white
+        image.tintColor = DesignSystem.Colors.tertiaryColor
         image.image = UIImage(named: "logo")
         return image
     }()
@@ -63,9 +63,9 @@ class GistListView: UIViewController, GistListViewProtocol {
         tableView.dataSource = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .singleLine
-        tableView.separatorColor = UIColor(red: 141/255, green: 148/255, blue: 157/255, alpha: 1.0)
+        tableView.separatorColor = DesignSystem.Colors.textColor
         tableView.register(GistTableViewCell.self, forCellReuseIdentifier: GistTableViewCell.identifier)
-        tableView.backgroundColor = UIColor(red: 18/255, green: 16/255, blue: 24/255, alpha: 1)
+        tableView.backgroundColor = DesignSystem.Colors.backgroundColor
         return tableView
     }()
     
@@ -86,7 +86,7 @@ class GistListView: UIViewController, GistListViewProtocol {
 
 extension GistListView: ViewCodeProtocol {
     func setupView() {
-        self.view.backgroundColor = UIColor(red: 18/255, green: 16/255, blue: 24/255, alpha: 1)
+        self.view.backgroundColor = DesignSystem.Colors.backgroundColor
         
         setupSubviews()
         setupConstraints()
@@ -110,11 +110,11 @@ extension GistListView: ViewCodeProtocol {
         
         NSLayoutConstraint.activate([
             self.headerStack.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            self.headerStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
+            self.headerStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: DesignSystem.Spacing.s),
         ])
         
         NSLayoutConstraint.activate([
-            self.tableView.topAnchor.constraint(equalTo: self.headerStack.bottomAnchor, constant: 10),
+            self.tableView.topAnchor.constraint(equalTo: self.headerStack.bottomAnchor, constant: DesignSystem.Spacing.s),
             self.tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             self.tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)

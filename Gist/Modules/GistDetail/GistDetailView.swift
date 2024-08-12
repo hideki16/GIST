@@ -23,7 +23,7 @@ class GistDetailView: UIViewController, GistDetailViewProtocol {
         stack.axis = .vertical
         stack.alignment = .center
         stack.distribution = .fillProportionally
-        stack.spacing = 10
+        stack.spacing = DesignSystem.Spacing.s
         stack.translatesAutoresizingMaskIntoConstraints = false
         return stack
     }()
@@ -33,7 +33,7 @@ class GistDetailView: UIViewController, GistDetailViewProtocol {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleToFill
         image.clipsToBounds = true
-        image.tintColor = .white
+        image.tintColor = DesignSystem.Colors.textColor
         image.layer.cornerRadius = 150
         return image
     }()
@@ -41,8 +41,8 @@ class GistDetailView: UIViewController, GistDetailViewProtocol {
     var name: UILabel = {
         var label = UILabel()
         label.text = ""
-        label.textColor = UIColor(red: 197/255, green: 198/255, blue: 216/255, alpha: 1.0)
-        label.font = UIFont(name: "Helvetica-Bold", size: 25)
+        label.textColor = DesignSystem.Colors.titleTextColor
+        label.font = DesignSystem.Fonts.titleFont
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -51,8 +51,8 @@ class GistDetailView: UIViewController, GistDetailViewProtocol {
     var descriptionLabel: UILabel = {
         var label = UILabel()
         label.text = ""
-        label.textColor = UIColor(red: 197/255, green: 198/255, blue: 216/255, alpha: 1.0)
-        label.font = UIFont(name: "Helvetica-Bold", size: 20)
+        label.textColor = DesignSystem.Colors.textColor
+        label.font = DesignSystem.Fonts.subtitleFont
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -95,7 +95,7 @@ class GistDetailView: UIViewController, GistDetailViewProtocol {
 extension GistDetailView: ViewCodeProtocol {
     
     func setupView() {
-        self.view.backgroundColor = UIColor(red: 18/255, green: 16/255, blue: 24/255, alpha: 1)
+        self.view.backgroundColor = DesignSystem.Colors.backgroundColor
         
         setupSubviews()
         setupConstraints()
@@ -103,7 +103,7 @@ extension GistDetailView: ViewCodeProtocol {
     
     func setupConstraints() {
         NSLayoutConstraint.activate([
-            self.contentStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 10),
+            self.contentStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: DesignSystem.Spacing.s),
             self.contentStack.centerXAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 0),
             self.contentStack.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 0),
         ])
