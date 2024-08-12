@@ -19,12 +19,12 @@ class GistListWorkerTests: XCTestCase {
         networkSpy.returnedCompletion = .success(.makeData(value: dummyDataDictionary))
         
         //When
-        let expectation = self.expectation(description: "fetchGists completion")
+        let expectation = self.expectation(description: "fetchGists retornou sucesso mas falhou ao fazer o parse")
         sut.fetchGists(page: 0) { result in
             //Then
             switch result {
             case .success(let gists):
-                XCTAssertNotEqual(gists.first?.id, dummyGistId, "O idw2eeeeeee2")
+                XCTAssertNotEqual(gists.first?.id, dummyGistId, "O id não deveria ser igual")
             case .failure:
                 XCTFail("Requisição falhou")
             }
@@ -42,7 +42,7 @@ class GistListWorkerTests: XCTestCase {
         networkSpy.returnedCompletion = .success(.makeData(value: dummyDataDictionary))
         
         //When
-        let expectation = self.expectation(description: "fetchGists completion")
+        let expectation = self.expectation(description: "fetchGists retornou sucessoe teve sucesso ao fazer o parse")
         sut.fetchGists(page: 0) { result in
             //Then
             switch result {
@@ -64,6 +64,7 @@ class GistListWorkerTests: XCTestCase {
         networkSpy.returnedCompletion = .failure(GistsError.notFound)
         
         //When
+        let expectation = self.expectation(description: "fetchGists retornou falha")
         sut.fetchGists(page: 0) { result in
             //Then
             switch result {
@@ -72,7 +73,10 @@ class GistListWorkerTests: XCTestCase {
             case .failure(let failure):
                 XCTAssertEqual(failure as? GistsError, GistsError.notFound)
             }
+            XCTAssertEqual(self.networkSpy.requestCount, 1)
+            expectation.fulfill()
         }
-        XCTAssertEqual(self.networkSpy.requestCount, 1)
+        
+        waitForExpectations(timeout: 1.0, handler: nil)
     }
 }

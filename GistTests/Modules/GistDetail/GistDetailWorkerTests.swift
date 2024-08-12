@@ -39,6 +39,7 @@ class GistDetailWorkerTests: XCTestCase {
         networkSpy.returnedCompletion = .success(.makeData(value: dummyDataDictionary))
         
         //When
+        let expectation = self.expectation(description: "fetchGistsdetail teve sucesso na requisição e falhou ao fazer o parse")
         sut.fetchGist(gistId: dummyGistId) { result in
             switch result {
             case .success(let success):
@@ -46,9 +47,11 @@ class GistDetailWorkerTests: XCTestCase {
             case .failure:
                 XCTFail("Requisição Falhou")
             }
+            expectation.fulfill()
         }
         //Then
         XCTAssertEqual(networkSpy.requestCount, 1)
+        waitForExpectations(timeout: 1.0)
     }
     
     func testGistDetailFailure() {
@@ -56,7 +59,7 @@ class GistDetailWorkerTests: XCTestCase {
         networkSpy.returnedCompletion = .failure(GistsError.notFound)
         
         //When
-        
+        let expectation = self.expectation(description: "fetchGistsdetail teve falha na requisição")
         sut.fetchGist(gistId: "") { result in
             switch result {
             case .success:
@@ -64,9 +67,11 @@ class GistDetailWorkerTests: XCTestCase {
             case .failure(let failure):
                 XCTAssertEqual(failure as? GistsError, GistsError.notFound, "O erro encontrado deveria ser não encontrado")
             }
+            expectation.fulfill()
         }
         //Then
         
         XCTAssertEqual(networkSpy.requestCount, 1)
+        waitForExpectations(timeout: 1.0)
     }
 }

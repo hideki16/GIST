@@ -20,6 +20,8 @@
 		72064EC12C675B5C00BC0553 /* GistDetailWorkerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EC02C675B5C00BC0553 /* GistDetailWorkerTests.swift */; };
 		72064EC32C68B18B00BC0553 /* GistDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EC22C68B18B00BC0553 /* GistDetailViewModelTests.swift */; };
 		72064EC52C68B21900BC0553 /* GistListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EC42C68B21900BC0553 /* GistListViewModelTests.swift */; };
+		72064EC92C69619500BC0553 /* GistListWorkerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064EC82C69619500BC0553 /* GistListWorkerMock.swift */; };
+		72064ECC2C698C1C00BC0553 /* GistDetailWorkerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72064ECB2C698C1C00BC0553 /* GistDetailWorkerMock.swift */; };
 		726798F52C5EBD5D003EAC39 /* GistListWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726798F42C5EBD5D003EAC39 /* GistListWorker.swift */; };
 		726798F72C5EBD6E003EAC39 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726798F62C5EBD6E003EAC39 /* Network.swift */; };
 		72A8247E29018B2300A2619D /* Gist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A8247D29018B2300A2619D /* Gist.swift */; };
@@ -60,6 +62,8 @@
 		72064EC02C675B5C00BC0553 /* GistDetailWorkerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDetailWorkerTests.swift; sourceTree = "<group>"; };
 		72064EC22C68B18B00BC0553 /* GistDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDetailViewModelTests.swift; sourceTree = "<group>"; };
 		72064EC42C68B21900BC0553 /* GistListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListViewModelTests.swift; sourceTree = "<group>"; };
+		72064EC82C69619500BC0553 /* GistListWorkerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListWorkerMock.swift; sourceTree = "<group>"; };
+		72064ECB2C698C1C00BC0553 /* GistDetailWorkerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistDetailWorkerMock.swift; sourceTree = "<group>"; };
 		726798F42C5EBD5D003EAC39 /* GistListWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistListWorker.swift; sourceTree = "<group>"; };
 		726798F62C5EBD6E003EAC39 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Network.swift; path = ../Modules/GistListModule/Network.swift; sourceTree = "<group>"; };
 		72A8247D29018B2300A2619D /* Gist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gist.swift; sourceTree = "<group>"; };
@@ -100,7 +104,7 @@
 		72064EA12C62B37000BC0553 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				72064EA22C62B38100BC0553 /* Inject.swift */,
+				72064EC62C68B4D300BC0553 /* Inject */,
 			);
 			name = Constants;
 			sourceTree = "<group>";
@@ -143,6 +147,7 @@
 		72064EB62C67596E00BC0553 /* GistList */ = {
 			isa = PBXGroup;
 			children = (
+				72064EC72C69617C00BC0553 /* Mock */,
 				72064EC42C68B21900BC0553 /* GistListViewModelTests.swift */,
 				72064EAE2C631BFE00BC0553 /* GistListWorkerTests.swift */,
 			);
@@ -152,6 +157,7 @@
 		72064EB72C67597E00BC0553 /* GistDetail */ = {
 			isa = PBXGroup;
 			children = (
+				72064ECA2C698BEC00BC0553 /* Mock */,
 				72064EC22C68B18B00BC0553 /* GistDetailViewModelTests.swift */,
 				72064EC02C675B5C00BC0553 /* GistDetailWorkerTests.swift */,
 			);
@@ -190,6 +196,30 @@
 				72064EB72C67597E00BC0553 /* GistDetail */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		72064EC62C68B4D300BC0553 /* Inject */ = {
+			isa = PBXGroup;
+			children = (
+				72064EA22C62B38100BC0553 /* Inject.swift */,
+			);
+			name = Inject;
+			sourceTree = "<group>";
+		};
+		72064EC72C69617C00BC0553 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				72064EC82C69619500BC0553 /* GistListWorkerMock.swift */,
+			);
+			name = Mock;
+			sourceTree = "<group>";
+		};
+		72064ECA2C698BEC00BC0553 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				72064ECB2C698C1C00BC0553 /* GistDetailWorkerMock.swift */,
+			);
+			name = Mock;
 			sourceTree = "<group>";
 		};
 		7230F48F2900780700DC7CE4 /* GistListModule */ = {
@@ -431,8 +461,10 @@
 				72064EC12C675B5C00BC0553 /* GistDetailWorkerTests.swift in Sources */,
 				72064EBE2C675AD700BC0553 /* Data+Extensions.swift in Sources */,
 				72064EC32C68B18B00BC0553 /* GistDetailViewModelTests.swift in Sources */,
+				72064ECC2C698C1C00BC0553 /* GistDetailWorkerMock.swift in Sources */,
 				72064EAF2C631BFE00BC0553 /* GistListWorkerTests.swift in Sources */,
 				72064EBB2C675A5F00BC0553 /* NetworkSpy.swift in Sources */,
+				72064EC92C69619500BC0553 /* GistListWorkerMock.swift in Sources */,
 				72064EC52C68B21900BC0553 /* GistListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
