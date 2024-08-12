@@ -73,8 +73,7 @@ class GistListView: UIViewController, GistListViewProtocol {
         super.viewDidLoad()
         setupView()
         
-        viewModel.fetchGists(completion: {
-            result in
+        viewModel.fetchGists(completion: { result in
             if result {
                 self.updateGists()
             } else {
@@ -146,6 +145,16 @@ extension GistListView: UITableViewDelegate, UITableViewDataSource {
         
         self.navigationController?.pushViewController(viewController , animated: true)
         return
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == viewModel.gists.count - 1 {
+            viewModel.fetchGists(completion: { result in
+                if result {
+                    self.updateGists()
+                }
+            })
+        }
     }
     
     func updateGists() {

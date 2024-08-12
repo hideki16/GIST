@@ -76,4 +76,36 @@ class GistListViewModelTests: XCTestCase {
         // Then
         waitForExpectations(timeout: 1.0, handler: nil)
     }
+    
+    func testFetchGistsPageCountOnSuccess() {
+        // Given
+        let lastPage: Int = sut.currentPage
+        let expectation = self.expectation(description: "Ao ter sucesso fetchgists incrementa em 1 a pagina atual")
+        mockWorker.result = .success([])
+        
+        // When
+        sut.fetchGists { result in
+            // Then
+            XCTAssertEqual(self.sut.currentPage - 1, lastPage)
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1.0)
+    }
+    
+    func testFetchGistsPageCountOnFailure() {
+        // Given
+        let lastPage: Int = sut.currentPage
+        let expectation = self.expectation(description: "Ao ter falha fetchgists não deve incrementar a pagina atual")
+        mockWorker.result = .failure(GistsError.notFound)
+        
+        // When
+        sut.fetchGists { result in
+            // Then
+            XCTAssertEqual(self.sut.currentPage, lastPage)
+            expectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 1.0)
+    }
 }
