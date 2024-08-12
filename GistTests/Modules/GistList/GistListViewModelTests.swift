@@ -86,7 +86,7 @@ class GistListViewModelTests: XCTestCase {
         // When
         sut.fetchGists { result in
             // Then
-            XCTAssertEqual(self.sut.currentPage - 1, lastPage)
+            XCTAssertEqual(self.sut.currentPage - 1, lastPage, "O incremento da paginação não foi realizado")
             expectation.fulfill()
         }
         
@@ -102,7 +102,7 @@ class GistListViewModelTests: XCTestCase {
         // When
         sut.fetchGists { result in
             // Then
-            XCTAssertEqual(self.sut.currentPage, lastPage)
+            XCTAssertEqual(self.sut.currentPage, lastPage, "Ao falhar, a paginação não deveria ser incrementada")
             expectation.fulfill()
         }
         
